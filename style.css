@@ -7,8 +7,10 @@
 	--clr-card-bg-tertiary: hsl(219, 29%, 14%);
 	--clr-card-bg-neutral: hsl(0, 0%, 100%);
 
-	--clr-text-dark: hsl(0, 0%, 81%);
-	--clr-text-light: hsl(210, 46%, 95%);
+	--clr-text-light: hsl(0, 0%, 81%);
+	--clr-text-dark: hsl(217, 19%, 35%);
+
+	--clr-site-bg: hsl(210, 46%, 95%);
 }
 
 body {
@@ -17,7 +19,99 @@ body {
 	font-family: "Barlow Semi Condensed", sans-serif;
 }
 
+h4,
+p {
+	margin: 0;
+}
+
 /* Main styles */
+
+body {
+	padding: 1.5rem;
+	background-color: var(--clr-site-bg);
+}
+
+main {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.card {
+	background-color: var(--clr-card-bg-neutral);
+
+	border-radius: 0.5rem;
+	padding: 0.8rem 1.5rem 2.5rem 1.5rem;
+
+	box-sizing: border-box;
+
+	box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+	color: var(--clr-text-dark);
+}
+
+.profile {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+.profile > img {
+	border-radius: 100%;
+
+	width: clamp(2rem, 15%, 2.3rem);
+}
+
+.light {
+	opacity: 0.5;
+	font-size: 0.8rem;
+	font-weight: 500;
+}
+
+.card > h3 {
+	font-size: 1.35rem;
+}
+.card > p {
+	opacity: 0.7;
+	font-weight: 500;
+}
+.card > p::before {
+	content: open-quote;
+}
+.card > p::after {
+	content: close-quote;
+}
+
+/* Card sublcasses */
+.card-primary,
+.card-secondary,
+.card-tertiary {
+	color: var(--clr-text-light);
+}
+
+.card-primary {
+	background-color: var(--clr-card-bg-primary);
+	position: relative;
+	isolation: isolate;
+}
+.card-primary::before {
+	content: url("./images/bg-pattern-quotation.svg");
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	right: 5%;
+}
+.card-primary .profile > img {
+	border: 3px solid violet;
+}
+
+.card-secondary {
+	background-color: var(--clr-card-bg-secondary);
+}
+
+.card-tertiary {
+	background-color: var(--clr-card-bg-tertiary);
+}
+.card-tertiary .profile > img {
+	border: 3px solid darkviolet;
+}
 
 /* Footer */
 
